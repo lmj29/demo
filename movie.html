@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>#00B51D</title>
+         <style>
+             body{
+                 margin: 0;
+                 padding: 0;
+                 width: 375px;
+                 background-color:#00B51D ;
+             }
+             h1{
+                 text-align: center;
+             }
+             .search{
+              display: block;
+              width: 340px;
+              height: 28px;
+              line-height: 28%;
+              text-indent: 45%;
+              margin: 0 auto;
+              border-radius: 6px;
+              outline: 0;
+              border: none;
+             }
+          .content{
+           width: 100%;
+           background-color: #fff;
+          }
+
+         </style>
+    </head>
+    <body>
+        <h1>首页</h1>
+        <input class="search" type="text" placeholder="搜索">
+        <div class="content">
+         <div class="in_theaters">
+             <span>影院热映</span>
+             <span>查看更多</span>
+             <div class="movie-item">
+               
+             </div>
+         </div>
+         <div></div>
+         <div></div>
+        </div> 
+        <script src="./js/jquery-3.3.1.min.js"></script>
+        <script src="./js/ajax.js"></script>
+        <script>
+            $(function(){
+                let arr = [{
+
+                }
+
+                ]
+                $('.search').click(function(){
+                    let movArr = []
+                    $.ajax({
+                     url:in_theaters,
+                      success:function(reasult){
+                      movArr = reasult.subjects
+                     let text = '';
+                     for(let i=0;i<movArr.length;i++){
+                        text+='<div> <img src="${movArr[i].images.small}" > <p>${movArr[i].title}</p> </div>'
+                   
+                    }
+                    $('.movie-item').html(text)
+                }
+                })
+                      
+                //       }
+                //   })
+                })
+            })
+        </script>
+            
+     
+       
+    </body>
+
+</html>
